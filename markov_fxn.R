@@ -8,13 +8,13 @@
 markov_fxn <- function(n = 30, begin_with = "", wordVec = wordVector) {
   
   emptyArray <- rep(NA, n + 1)
-  beginning <- wordVector[grep(begin_with, wordVector)]
+  beginning <- wordVec[grep(begin_with, wordVec)]
   sample(beginning, 1) -> context; 
   emptyArray[1] <- context;
   ## print(context) 
   
   for(i in 1:n) {
-    sample(wordVector[which(wordVector == context) + 1], size = 1) -> context; 
+    sample(wordVec[which(wordVec == context) + 1], size = 1) -> context; 
     emptyArray[i+1] <- context;
     ## print(context)
     if (grepl("[.]$", context) == TRUE)
@@ -27,8 +27,6 @@ markov_fxn <- function(n = 30, begin_with = "", wordVec = wordVector) {
   for (i in 1:length(filledArray)) {
     machineText <- paste0(machineText, filledArray[i], " ")
   }
-  
-  # cat("\014") # Clear the console
   
   return(machineText)
 }
