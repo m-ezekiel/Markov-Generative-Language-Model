@@ -54,7 +54,7 @@ server <- function(input, output) {
     head(wordVector)
 
     # Generate text based on default parameters, markov_fxn(n = 30, begin_with = "")
-    markov_fxn(n = input$action - input$action + input$n -1, wordVector = wordVector)
+    markov_fxn(n = input$action - input$action + input$n -1, wordVec = wordVector)
     
   })
 }
