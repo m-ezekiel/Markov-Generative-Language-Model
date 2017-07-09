@@ -5,7 +5,7 @@
 
 # Markov Function with Added parameter for "begins_with = " and return array
 
-markov_fxn <- function(n = 30, begin_with = "") {
+markov_fxn <- function(n = 30, begin_with = "", wordVector = wordVector) {
   
   emptyArray <- rep(NA, n + 1)
   beginning <- wordVector[grep(begin_with, wordVector)]
