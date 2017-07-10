@@ -13,13 +13,15 @@ corpusToVector <- function(file, nGram = 1) {
   trigrams <- NULL
     
   if (nGram == 2) {
-    for (i in 1:length(wordVec)-1)
-      bigrams[i] <- paste0(wordVec[i], " ", wordVec[i+1])
+    for (i in 1:length(wordVec)-1) {
+      bigrams[i] <- paste(wordVec[i], wordVec[i+1])
+      print(i)
+    }
     wordVec <- bigrams
   }
   if (nGram == 3) {
     for (i in 1:length(wordVec)-2)
-      trigrams[i] <- paste0(wordVec[i], " ", wordVec[i+1], " ", wordVec[i+2])
+      trigrams[i] <- paste(wordVec[i], wordVec[i+1], wordVec[i+2])
     wordVec <- trigrams
   }
   
