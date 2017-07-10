@@ -5,9 +5,16 @@
 
 source("corpusToVector_fxn.R")
 source("markov_fxn.R")
+source("returnStats_fxn.R")
 
+# Save document
+data <- NULL
+newText <- NULL
 
 ui <- fluidPage(
+  
+  textOutput("saveDoc"),
+  
   sidebarLayout(
     sidebarPanel(
       
@@ -17,46 +24,65 @@ ui <- fluidPage(
                             ".csv") ),
       
       sliderInput("n", "Maximum number of words",
-                  min = 2,  max = 30, value = 10),
-      
-      sliderInput("novelty", "Degree of fidelity",
-                  min = 1,  max = 10, value = 3),
+                  min = 2,  max = 100, value = 50),
       
       actionButton("action", label = "Generate Text"),
+
+      # Right now these are place holders...
+      actionButton("saveData", label = "Save Text"),
+      downloadButton("downloadData", label = "Download"),
       
       # I still have no clue what hr() does...
       tags$hr() ),
     
     # Show text in main panel
     mainPanel(
-      textOutput("contents")
+      textAreaInput("inText", "Input text", width = "600px", height = "300px"),
+      verbatimTextOutput("nText")
     )
   )
 )
 
-server <- function(input, output) {
-#  output$value <- renderPrint({ input$action - input$action})
-  
-  output$contents <- renderText({
+server <- function(input, output, session) {
 
-    # input$file1 will be NULL initially. After the user selects
-    # and uploads a file, it will be a data frame with 'name',
-    # 'size', 'type', and 'datapath' columns. The 'datapath'
-    # column will contain the local filenames where the data can
-    # be found.
+  observe({
     inFile <- input$file1
     
     if (is.null(inFile))
       return(NULL)
     
     # Import text corpus-- basically any free text file (see www.archive.org for resources)
-    corpusToVector(file = inFile$datapath) -> wordVector
+    corpusToVector(file = inFile$datapath, nGram = 1) -> wordVector
     head(wordVector)
-
-    # Generate text based on default parameters, markov_fxn(n = 30, begin_with = "")
-    markov_fxn(n = input$action - input$action + input$n -1, wordVec = wordVector)
     
+    # Generate text based on default parameters, markov_fxn(n = 30, begin_with = "")
+    newText <- markov_fxn(n = input$action - input$action + input$n -1, wordVec = wordVector)
+    
+    # This will change the value of input$inText, based on x
+    updateTextAreaInput(session, "inText", value = newText)
   })
+
+  ntext <- eventReactive(input$saveData, {
+    input$inText
+  })
+  
+  output$nText <- renderText({
+    data[length(data)+1] <<- ntext()
+  })
+
+    
+  output$saveData <- renderPrint({
+    data[length(data)+1] <<- input$inText
+  })
+    
+  output$downloadData <- downloadHandler(
+    filename = function() {
+      paste("data-", Sys.Date(), ".csv", sep="")
+    },
+    content = function(file) {
+      write.csv(data, file)
+    }
+  )
 }
 
 
