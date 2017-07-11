@@ -30,7 +30,7 @@ ui <- fluidPage(
 
       # Right now these are place holders...
       actionButton("saveData", label = "Save Text"),
-      downloadButton("downloadData", label = "Download"),
+      
       
       # I still have no clue what hr() does...
       tags$hr() ),
@@ -38,6 +38,7 @@ ui <- fluidPage(
     # Show text in main panel
     mainPanel(
       textAreaInput("inText", "Input text", width = "600px", height = "300px"),
+      downloadButton("downloadData", label = "Download"),
       verbatimTextOutput("nText")
     )
   )
@@ -66,14 +67,15 @@ server <- function(input, output, session) {
     input$inText
   })
   
-  output$nText <- renderText({
+  output$nText <- renderPrint({
     data[length(data)+1] <<- ntext()
+    data
   })
 
     
-  output$saveData <- renderPrint({
-    data[length(data)+1] <<- input$inText
-  })
+  # output$saveData <- renderPrint({
+  #   data[length(data)+1] <<- input$inText
+  # })
     
   output$downloadData <- downloadHandler(
     filename = function() {

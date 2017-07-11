@@ -27,8 +27,8 @@ markov_fxn <- function(n = 30, begin_with = "", wordVec = wordVector) {
   # Define output index based on order and degree of the Markov model.
   # This is a brittle solution, the shape of the data should dictate the model behavior.
   dataShape <- length(unlist(strsplit(wordVec[1], split = " ")))
-#  print(dataShape)
-  if (dataShape == 1)
+ # print(dataShape)
+  if (dataShape <= 1 )
     index <- seq(from=1, to=length(filledArray), 1)
   if (dataShape == 2)
     index <- seq(from=1, to=length(filledArray), 2)

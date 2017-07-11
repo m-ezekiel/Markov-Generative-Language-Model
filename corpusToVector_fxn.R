@@ -7,6 +7,7 @@ corpusToVector <- function(file, nGram = 1) {
   text_data <- readLines(file)
   gsub("[()_!]", "", text_data) -> text_data; 
   gsub("--", " ", text_data) -> text_data
+  gsub("  ", " ", text_data) -> text_data
   wordVec <- unlist(strsplit(text_data, split = " "))
 
   bigrams <- NULL

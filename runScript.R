@@ -9,7 +9,7 @@ source("markov_fxn.R")
 source("returnStats_fxn.R")
 
 # Import text corpus-- basically any free text file (see www.archive.org for resources)
-corpusToVector(file = "data/time_machine_Wells.txt") -> wordVector
+corpusToVector(file = "data/2016_DNC_platform.txt") -> wordVector
 
 # Corpus stats
 # length(wordVector)
