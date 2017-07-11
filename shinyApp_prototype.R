@@ -79,7 +79,8 @@ server <- function(input, output, session) {
     
   output$downloadData <- downloadHandler(
     filename = function() {
-      paste("data-", Sys.Date(), ".csv", sep="")
+      sysTime <- gsub("[ :]", "-", x = Sys.time())
+      paste(sysTime, "_machineText", ".csv", sep="")
     },
     content = function(file) {
       write.csv(data, file)
