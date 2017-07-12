@@ -988,7 +988,8 @@ is older than that.
 
 [Answer]  We just don't like being forced into any corner.  Now people are
 saying that it's all criminal, breaking into data bases and getting into
-0ä= uéƒ~* té
+0ä=
+ uéƒ~* té
 ‹F(» ÷ëÄv6&‹\R&‹tPğFP‰^.‰v,šÂ‹åÄv,&‰D&‰\ŠF0äéš Äv,&Ç ŠF0ä±ÓàŠ^0ÿØ&‰\é‘ Äv,&Ç ŠF0ä&‰DŠF0ä&‰DëuÄv,&Ç ŠF0ä&‰DëbÄv,&Ç ŠF0ä&‰DëOÄv,&ÇA ŠF0ä&‰Dë<¸P¸ PšB‹åë*M RD ?L ,N C ñ¾ .;„wu.ÿ¤yƒîyïëÄÿF(¸  PFPÄv6&ÿtš±O.‹å‰F*éàş‹F(Äv6&‰DNƒÄ0]ËUƒì‹ì‹F‹^ƒÃ*‹N‹VƒÂ*‰F¸  PQRÿvSš ö.‹åÄv&‹D43Û…ÀyK&‰\&‰D&‹D23Û…ÀyK&‰\ &‰D3À3Û&‰D$&‰\"&ÇD &ÇD  &‰D(&‰\&&Æ„  ƒÄ]ËUƒì‹ìÄv&‹DTÜÄv&‰DTPš'B‹åÄv&‰DR&‰\P3À‰F‰F
 ‹FÄv&‹\N;Ø~oÄv&ƒ< t» ÷ëÄv&‹\R&‹tPğÃ&ƒ<AtG‹F» ÷ëÄv&‹\R&‹LPÈ‹F
 º ÷êÄv&‹TR‰F&‹DP‰^‹^Ã» SRPÿvQš ö.‹åÿF
@@ -999,7 +1000,8 @@ uéá Äv.&‹DR&‹\PÇF$  ‰F‰^‹F$;F&}"Äv&‹D&‹\Ä~
 &;Eu&;t	ÿF$ƒFëÖ‹F$;F&|é‚ ‹F‹^ŒÑV‰F¸ PQRÿvSš ö.‹åÄv.&‹DR&‹\P‰^ ƒÃ&‹LTI‰F‰F‹Áº ÷êPÿvSÿvÿv š ö.‹åŒĞ^Äv.&‹LR&‹TP‰N¹ QÿvRPSš ö.‹åÄv.&ÿDNÿF&Äv
 &‹D&‹\‰F‰^
 éÿƒÄ(]ËUƒì‹ìÇF ÇF  ‹FÄv&‹\N;Ø~$» ÷ë&‹\R&‹tPğ‹FÃ&‰D&‹DFÿFëÎ‹F3Û…ÀyKÄv&‰\&‰D±&‹DNÓà" 3Û…ÀyK&‰\ &‰DƒÄ]ËUƒì
-‹ìÄv&ÆD*ÇF  ‹FÄv&‹\N;Ø~a» ÷ë&‹\R&‹tPğÃ&ƒ<A‰^‰vuÄv&ÆD*ƒ¡JÄv&‰D&‹D&‹|À&‹]&‹ŒFF&‰\&‰L
+‹ìÄv&ÆD*ÇF  ‹FÄv&‹\N;Ø~a» ÷ë&‹\R&‹tPğÃ&ƒ<A‰^‰vuÄv&ÆD*ƒ¡JÄv&‰D&‹D&‹|À&‹]&‹
+ŒFF&‰\&‰L
 ŒÀ‹ŞF&‰E&‰ÿFë‘ƒÄ
 ]ËUƒì‹ìÇF  ‹FÄv&‹\N;Øé¦ » ÷ë&‹\R&‹tPğÃ&‹D&‹|ŒFÀ&‹M&‹;Nu;Ş‰F‰N‰^‰~
 uÁ&‹G&‹_
@@ -1501,44 +1503,13 @@ is older than that.
 
 [Answer]  We just don't like being forced into any corner.  Now people are
 saying that it's all criminal, breaking into data bases and getting into
-0ä= uéƒ~* té
-‹F(» ÷ëÄv6&‹\R&‹tPğFP‰^.‰v,šÂ‹åÄv,&‰D&‰\ŠF0äéš Äv,&Ç ŠF0ä±ÓàŠ^0ÿØ&‰\é‘ Äv,&Ç ŠF0ä&‰DŠF0ä&‰DëuÄv,&Ç ŠF0ä&‰DëbÄv,&Ç ŠF0ä&‰DëOÄv,&ÇA ŠF0ä&‰Dë<¸P¸ PšB‹åë*M RD ?L ,N C ñ¾ .;„wu.ÿ¤yƒîyïëÄÿF(¸  PFPÄv6&ÿtš±O.‹å‰F*éàş‹F(Äv6&‰DNƒÄ0]ËUƒì‹ì‹F‹^ƒÃ*‹N‹VƒÂ*‰F¸  PQRÿvSš ö.‹åÄv&‹D43Û…ÀyK&‰\&‰D&‹D23Û…ÀyK&‰\ &‰D3À3Û&‰D$&‰\"&ÇD &ÇD  &‰D(&‰\&&Æ„  ƒÄ]ËUƒì‹ìÄv&‹DTÜÄv&‰DTPš'B‹åÄv&‰DR&‰\P3À‰F‰F
-‹FÄv&‹\N;Ø~oÄv&ƒ< t» ÷ëÄv&‹\R&‹tPğÃ&ƒ<AtG‹F» ÷ëÄv&‹\R&‹LPÈ‹F
-º ÷êÄv&‹TR‰F&‹DP‰^‹^Ã» SRPÿvQš ö.‹åÿF
-ÿFëƒ‹F
-Äv&‰DNƒÄ]ËUƒì(‹ì¡Ú‹ØÄv.&‹LN&ÇDN  ‰F‰N&‰^
-‹FF
-uéá Äv.&‹DR&‹\PÇF$  ‰F‰^‹F$;F&}"Äv&‹D&‹\Ä~
-&;Eu&;t	ÿF$ƒFëÖ‹F$;F&|é‚ ‹F‹^ŒÑV‰F¸ PQRÿvSš ö.‹åÄv.&‹DR&‹\P‰^ ƒÃ&‹LTI‰F‰F‹Áº ÷êPÿvSÿvÿv š ö.‹åŒĞ^Äv.&‹LR&‹TP‰N¹ QÿvRPSš ö.‹åÄv.&ÿDNÿF&Äv
-&‹D&‹\‰F‰^
-éÿƒÄ(]ËUƒì‹ìÇF ÇF  ‹FÄv&‹\N;Ø~$» ÷ë&‹\R&‹tPğ‹FÃ&‰D&‹DFÿFëÎ‹F3Û…ÀyKÄv&‰\&‰D±&‹DNÓà" 3Û…ÀyK&‰\ &‰DƒÄ]ËUƒì
-‹ìÄv&ÆD*ÇF  ‹FÄv&‹\N;Ø~a» ÷ë&‹\R&‹tPğÃ&ƒ<A‰^‰vuÄv&ÆD*ƒ¡JÄv&‰D&‹D&‹|À&‹]&‹ŒFF&‰\&‰L
-ŒÀ‹ŞF&‰E&‰ÿFë‘ƒÄ
-]ËUƒì‹ìÇF  ‹FÄv&‹\N;Øé¦ » ÷ë&‹\R&‹tPğÃ&‹D&‹|ŒFÀ&‹M&‹;Nu;Ş‰F‰N‰^‰~
-uÁ&‹G&‹_
-F&‰E&‰ëP‹F» ÷ëÄv&‹\R&‹LPÈÄv&‹D&‹T
-;Øu;Êt‰F‰VëĞÄv&‹D&‹t
-À&‹\&‹L
-Ä~&‰]&‰M
-ÿFéIÿƒÄ]ËUƒì‹ì¸’ Pš¶B‹å‹NÀ&‰O3É&‰O3É3Ò&‰O\&‰WZ3É&‰O^3É&‰OX&‰WV&‰O&‰W&‰O$&‰W"&ÇG  &‰O(&‰W&&Æ‡  ‰F‰^¡Né–Äv&Ç  Vè.ù‹åÿvÿvèÄù‹åÿvÿvèªı‹åÿvÿvèş‹åéoÄv&Çtation and the personal password for Haspa.
 
 By the way, the CCC would have never gotten its hands on the Haspa and its
 customers' money.
 
 Fact:  BTX is safe!
 
-[p 44:  letter]
-Ç ¡ÒÑàÑà‹øÿµRÿµPVèmú‹å¡ÒÑàÑà‹ğÿ´Rÿ´PÿvÿvèĞú‹å¡ÚØtÿvÿvèzû‹åÿvÿvè‚ü‹åÿvÿvèìü‹å3À3ÛÄv&‰D$&‰\"&‰D&‰\é0Äv&Ç ¡ÔÑàÑà‹øÿµRÿµPVèèù‹å¡ÔÑàÑà‹ğÿ´Rÿ´PÿvÿvèKú‹å¡ÚØtÿvÿvèõú‹åÿvÿvèıû‹åÿvÿvègü‹åÄv&ÇD$ÿ&ÇD"ÿÿ&ÇD  &ÇD  &ÇD  é¡Äv&Ç ¡ÒÑàÑà‹øÿµRÿµPVèYù‹å¡ÒÑàÑà‹ğÿ´Rÿ´Pÿvÿvè¼ù‹å¡ÚØtÿvÿvèfú‹åÿvÿvènû‹åÿvÿvèØû‹å3À3ÛÄv&‰D$&‰\"&‰D&‰\éÄv&Ç ¡ÔÑàÑà‹øÿµRÿµPVèÔø‹å¡ÔÑàÑà‹ğÿ´Rÿ´Pÿvÿvè7ù‹å¡ÚØtÿvÿvèáù‹åÿvÿvèéú‹åÿvÿvèSû‹åÄv&ÇD$ÿ&ÇD"ÿÿ&ÇD  &ÇD  &ÇD  é Äv&Ç  Vè"#‹åÿvÿvèú‹åÿvÿvèû‹åëcÄv&Ç  VèB%‹åÿvÿvèsú‹åÿvÿvèİú‹åë9¸™P3ÀPšB‹åë(SÖDXŠÉİÖl–lS‹ğƒşsÑæ.ÿ¤ÑëÇ‹F‹^ƒÄ]ËUì ‹ìèCÄ6@&‹% u¸£P3ÀPšB‹åÄ6@&‹D
-&‹\ƒ.@‰F‰^
-èÖô…À‰Fuÿ6Bÿ6@šĞB‹åƒ.@Ä ]Ëÿvèzû‹åÀ&ÿw&ÿw‰F‰^š¶B‹åÄv&‰DL&‰\e with 50 groups of participants from every continent, and
-FPÄ6@&ÿt
-&ÿtšVB‹åFNPšÂ‹å‹JÀ&‰Oë
-¡JÄv
-&‰Dš ¶‹F‹^‹JÑáÑá‹ñ‰„R‰œP£R‰Pè[Ä ]ËUƒì‹ìÄv&ƒ| t&ÆD*ƒëÄv&ÆD*3ÀP¾`‹D‹\‹L‹PSQRFPš­(‹åŠF0ä-0 »
- ÷ëŠ^0ÿƒë0ÃÄv&ˆD+ŠF0ä-0 »
- ÷ëŠ^	0ÿƒë0Ã&ˆD,ŠF
-0ä-0 »
- ÷ëŠ^0ÿƒë0Ã&ˆD-&‹D$&‹\"&‰D0&‰\.&‹D&‰D2&‹D&‰D4ŒÀ‹ŞƒÃ63ÉQ¹ QPSš b/‹å3ÀP3ÀP3ÛSÄv&ÿtš`O.‹å‹F‹^ƒÃ*¹  QPSÀ‹v&ÿtšO.‹åÄv&ÇD  ƒÄ]ËUƒì*‹ìÄv0&‹DR&‹\P&‹LN‰F&‰N(‰^$‹F(ÿN(…ÀuéÈ ŒĞ^3ÉQ¹  QPSš b/‹åÄv$&ÿt&ÿtšputer is not connected to any terminal in Europe...  We feel
+And not connected to any terminal in Europe...  We feel
 that it is necessary to isolate the computer from Europe, to prevent one person
 from writing the new universal theory; this is not out of mistrust towards
 intentions, but rather because we believe that a single person would allow too
