@@ -14,7 +14,7 @@ ui <- fluidPage(
   
   sidebarLayout(
     sidebarPanel(
-      fileInput( "file1", "Choose Text File",
+      fileInput( "file1", "Choose Text File", multiple = TRUE,
                  accept = c("text/csv", "text/comma-separated-values,text/plain", ".csv")),
       sliderInput("n", label = "Maximum number of words",
                   min = 2,  max = 100, value = 50),
