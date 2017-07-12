@@ -9,7 +9,7 @@ corpusToVector <- function(file, nGram = 1, removePunct = FALSE) {
   gsub("--", " ", text_data) -> text_data
   gsub("  ", " ", text_data) -> text_data
   if (removePunct == TRUE) {
-    gsub("[,.?]", "", text_data) -> text_data
+    gsub("[,.?\"]", "", text_data) -> text_data
   }
   
   wordVec <- unlist(strsplit(text_data, split = " "))
