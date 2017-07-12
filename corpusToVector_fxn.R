@@ -2,14 +2,18 @@
 # Desc: Takes an input file (.txt) and returns a string vector separated by whitespace.
 # 2017-07-08
 
-corpusToVector <- function(file, nGram = 1) {
+corpusToVector <- function(file, nGram = 1, removePunct = FALSE) {
 
   text_data <- readLines(file)
-  gsub("[()_!]", "", text_data) -> text_data; 
+  gsub("[()_!]", "", text_data) -> text_data
   gsub("--", " ", text_data) -> text_data
   gsub("  ", " ", text_data) -> text_data
+  if (removePunct == TRUE) {
+    gsub("[,.?]", "", text_data) -> text_data
+  }
+  
   wordVec <- unlist(strsplit(text_data, split = " "))
-
+  
   bigrams <- NULL
   trigrams <- NULL
     
