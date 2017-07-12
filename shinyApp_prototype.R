@@ -5,7 +5,7 @@
 
 source("corpusToVector_fxn.R")
 source("markov_fxn.R")
-source("returnStats_fxn.R")
+source("wordFreq_fxn.R")
 
 # Initialize data frame
 data <- data.frame()
@@ -14,17 +14,23 @@ ui <- fluidPage(
   
   sidebarLayout(
     sidebarPanel(
-      fileInput( "file1", "Choose Text File", multiple = TRUE,
+      # selectInput("serverFile", "Dropdown list!", 
+      #             choices = c("Computer Virus" = "data/compVirus_epidemic_compilation.txt",
+      #                         "The Time Machine" = "a",
+      #                         "Copyright Law" = "v")),
+      fileInput( "file1", "Choose Text File", multiple = FALSE,
                  accept = c("text/csv", "text/comma-separated-values,text/plain", ".csv")),
       sliderInput("n", label = "Maximum number of words",
                   min = 2,  max = 100, value = 50),
-      actionButton("generateText", label = "Generate Text"),
+      actionButton("generateText", label = "Generate Text",
+                   style="color: #fff; background-color: #337ab7; border-color: #2e6da4"),
       actionButton("saveData", label = "Save Text"),
       tags$hr() 
       ),
     mainPanel(
       textAreaInput("inText", "Input text", width = "600px", height = "255px"),
       verbatimTextOutput("summaryStats"),
+      verbatimTextOutput("wordFreq"),
       downloadButton("downloadData", label = "Download"),
       verbatimTextOutput("nText")
     )
@@ -69,6 +75,13 @@ server <- function(input, output, session) {
     updateStats()
   })
   
+  ## WORD FREQUENCIES (possibly use renderTable?)
+  updateFreq <- eventReactive(input$generateText, {
+    names(wordFreq(inFile$datapath, n = 10))
+  })
+  output$wordFreq <- renderText({
+    updateFreq()
+  })
   
   ## SAVE AND DISPLAY TEXT
   ntext <- eventReactive(input$saveData, {
