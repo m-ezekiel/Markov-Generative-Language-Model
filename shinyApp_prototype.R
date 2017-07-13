@@ -2,6 +2,7 @@
 
 
 #library(shiny)
+library(wordcloud)
 
 source("corpusToVector_fxn.R")
 source("markov_fxn.R")
@@ -11,31 +12,35 @@ source("wordFreq_fxn.R")
 data <- data.frame()
 
 ui <- fluidPage(
+  titlePanel("Markov Generative Language Model"),
   
   sidebarLayout(
+    
     sidebarPanel(
-      # selectInput("serverFile", "Dropdown list!", 
-      #             choices = c("Computer Virus" = "data/compVirus_epidemic_compilation.txt",
-      #                         "The Time Machine" = "a",
-      #                         "Copyright Law" = "v")),
-      fileInput( "file1", "Choose Text File", multiple = FALSE,
+      fileInput( "textFile", "Choose Text File", multiple = FALSE,
                  accept = c("text/csv", "text/comma-separated-values,text/plain", ".csv")),
-      sliderInput("n", label = "Maximum number of words",
+      sliderInput("wordsSlider", label = "Maximum number of words",
                   min = 2,  max = 100, value = 50),
-      actionButton("generateText", label = "Generate Text",
+      actionButton("genButton", label = "Generate Text",
                    style="color: #fff; background-color: #337ab7; border-color: #2e6da4"),
-      actionButton("saveData", label = "Save Text"),
-      tags$hr() 
-      ),
+      actionButton("saveButton", label = "Save Text")
+    ),
+    
     mainPanel(
-      textAreaInput("inText", "Input text", width = "600px", height = "255px"),
-      verbatimTextOutput("summaryStats"),
-      verbatimTextOutput("wordFreq"),
-      downloadButton("downloadData", label = "Download"),
-      verbatimTextOutput("nText")
+      tabsetPanel(
+        tabPanel("Text Editor",
+                 textAreaInput("inText", "", width = "600px", height = "175px"),
+                 verbatimTextOutput("summaryStats"),
+                 downloadButton("downloadData", label = "Download"),
+                 verbatimTextOutput("nText")),
+        tabPanel("Analysis",
+                 plotOutput("wordCloud")), 
+        tabPanel("Resources", tableOutput("table"))
+      )
     )
   )
 )
+
 
 
 
@@ -46,67 +51,58 @@ server <- function(input, output, session) {
   # Define session variables
   wordVector <- NULL
   inFile <- NULL
-
+  
   observe({
-    inFile <<- input$file1
-    
+    inFile <<- input$textFile
     if (is.null(inFile))
       return(NULL)
     
     # Import text corpus-- basically any free text file (see www.archive.org for resources)
-    corpusToVector(file = inFile$datapath, nGram = 1) ->> wordVector
-
+    wordVector <<- corpusToVector(file = inFile$datapath, nGram = 1)
+    
     # Generate text based on default parameters, markov_fxn(n = 30, begin_with = "")
-    newText <- markov_fxn(n = input$generateText - input$generateText + input$n - 1, 
+    newText <- markov_fxn(n = input$genButton - input$genButton + input$wordsSlider - 1, 
                           wordVec = wordVector)
     
     # This will change the value of input$inText, based on the given value
     updateTextAreaInput(session, "inText", value = newText)
   })
-
+  
   
   ## SUMMARY STATISTICS
-  updateStats <- eventReactive(input$generateText, {
+  output$summaryStats <- renderText( {updateStats()} )
+  updateStats <- eventReactive( input$textFile, {
     paste("File:", inFile$name, "  ",
           "Words:", length(wordVector), "  ",
-          "Variety:", signif(length(unique(wordVector)) / length(wordVector), digits = 2))
-  })  
-  output$summaryStats <- renderText({
-    updateStats()
-  })
-  
-  ## WORD FREQUENCIES (possibly use renderTable?)
-  updateFreq <- eventReactive(input$generateText, {
-    names(wordFreq(inFile$datapath, n = 10))
-  })
-  output$wordFreq <- renderText({
-    updateFreq()
-  })
+          "Variety (0-1):", signif(length(unique(wordVector)) / length(wordVector), digits = 2)) 
+    })
   
   ## SAVE AND DISPLAY TEXT
-  ntext <- eventReactive(input$saveData, {
-    input$inText
-  })
+  ntext <- eventReactive(input$saveButton, { input$inText })
   output$nText <- renderPrint({
-    # Save the new text and current system time
     data[dim(data)[1]+1, "savedText"] <<- ntext()
     data[dim(data)[1], "timeStamp"] <<- as.character(Sys.time())
     data[dim(data)[1], "sourceDoc"] <<- inFile$name
-    # Display saved text
     data[dim(data)[1]:1 , "savedText"]
   })
-
-
+  
   ## DOWNLOAD DATA   
   output$downloadData <- downloadHandler(
+    content = function(file) {write.csv(data, file)},
     filename = function() {
       sysTime <- gsub("[ :]", "-", x = Sys.time())
       paste(sysTime, "_machineText", ".csv", sep="")
-    },
-    content = function(file) {
-      write.csv(data, file)
-    }
-  )
+    })
+  
+  ## WORD CLOUD
+  output$wordCloud <- renderPlot({ wcPlot() })
+  wcPlot <- eventReactive( input$textFile, {
+    freqs <- wordFreq(file = inFile$datapath, n=40)
+    wordcloud(names(freqs), freqs, min.freq=20, colors=brewer.pal(6,"Dark2"), 
+              random.color = FALSE,
+              random.order = FALSE)
+  })
+  
 }
 
 
