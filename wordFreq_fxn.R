@@ -13,7 +13,7 @@ wordFreq <- function(file = "", n = 10, dict = "stopWords_english.txt") {
   for (i in 1:length(myStops)) 
     cleanWords <- cleanWords[cleanWords != myStops[i]]
   
-  top_N <- tail(sort(rowSums(as.matrix(table(cleanWords)))), 10)
+  top_N <- tail(sort(rowSums(as.matrix(table(cleanWords)))), n)
   
   return(top_N)
 }
