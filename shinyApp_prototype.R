@@ -34,9 +34,25 @@ ui <- fluidPage(
                  downloadButton("downloadData", label = "Download"),
                  verbatimTextOutput("nText")),
         tabPanel("Analysis",
-                 textOutput("fileName"),
+                 HTML(paste("<br/>")),
+                 verbatimTextOutput("fileName"),
                  plotOutput("wordCloud")), 
-        tabPanel("Resources", tableOutput("table"))
+        tabPanel("Resources",
+                 HTML(paste("<br/>")),
+                 # HTML(paste("hello", "world", sep="<br/>")),
+                 helpText( a("A visual explanation of Markov chains", 
+                             href="http://setosa.io/blog/2014/07/26/markov-chains/",
+                             target="_blank")),
+                 helpText( a("Download more text files", 
+                             href="http://textfiles.com/directory.html",
+                             target="_blank")),
+                 helpText( a("Rhyming Dictionary", 
+                             href="https://muse.dillfrog.com/sound/search",
+                             target="_blank")),
+                 HTML(paste(rep("<br/>", 4))),
+                 helpText("v0.1 |", a("@m-ezekiel", 
+                             href="http://www.m-ezekiel.com",
+                             target="_blank")))
       )
     )
   )
