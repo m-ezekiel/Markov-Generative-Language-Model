@@ -34,6 +34,7 @@ ui <- fluidPage(
                  downloadButton("downloadData", label = "Download"),
                  verbatimTextOutput("nText")),
         tabPanel("Analysis",
+                 textOutput("fileName"),
                  plotOutput("wordCloud")), 
         tabPanel("Resources", tableOutput("table"))
       )
@@ -49,8 +50,8 @@ ui <- fluidPage(
 server <- function(input, output, session) {
   
   # Define session variables
-  wordVector <- NULL
-  inFile <- NULL
+  # wordVector <- NULL
+  # inFile <- NULL
   
   observe({
     inFile <<- input$textFile
@@ -61,21 +62,14 @@ server <- function(input, output, session) {
     wordVector <<- corpusToVector(file = inFile$datapath, nGram = 1)
     
     # Generate text based on default parameters, markov_fxn(n = 30, begin_with = "")
-    newText <- markov_fxn(n = input$genButton - input$genButton + input$wordsSlider - 1, 
-                          wordVec = wordVector)
+    newText <<- markov_fxn(n = input$genButton*0 + input$wordsSlider - 1,
+                           wordVec = wordVector)
     
     # This will change the value of input$inText, based on the given value
     updateTextAreaInput(session, "inText", value = newText)
+    
   })
   
-  
-  ## SUMMARY STATISTICS
-  output$summaryStats <- renderText( {updateStats()} )
-  updateStats <- eventReactive( input$textFile, {
-    paste("File:", inFile$name, "  ",
-          "Words:", length(wordVector), "  ",
-          "Variety (0-1):", signif(length(unique(wordVector)) / length(wordVector), digits = 2)) 
-    })
   
   ## SAVE AND DISPLAY TEXT
   ntext <- eventReactive(input$saveButton, { input$inText })
@@ -94,11 +88,31 @@ server <- function(input, output, session) {
       paste(sysTime, "_machineText", ".csv", sep="")
     })
   
+  ## SUMMARY STATISTICS
+  updateStats <- reactive( {
+    inFile <<- input$textFile
+    if (is.null(inFile))
+      return(NULL)
+    paste("File:", inFile$name, "  ",
+          "Words:", length(wordVector), "  ",
+          "Variety (0-1):", signif(length(unique(wordVector)) / length(wordVector), digits = 2)) 
+  })
+  output$summaryStats <- renderText( {
+    updateStats()
+    })
+  
+  
   ## WORD CLOUD
+  updateStats2 <- eventReactive( input$textFile, {
+    paste("File:", inFile$name, "  ",
+          "Words:", length(wordVector), "  ",
+          "Variety (0-1):", signif(length(unique(wordVector)) / length(wordVector), digits = 2)) 
+  })
+  output$fileName <- renderText({ updateStats2() })
   output$wordCloud <- renderPlot({ wcPlot() })
   wcPlot <- eventReactive( input$textFile, {
     freqs <- wordFreq(file = inFile$datapath, n=40)
-    wordcloud(names(freqs), freqs, min.freq=20, colors=brewer.pal(6,"Dark2"), 
+    wordcloud(names(freqs), freqs, min.freq=20, colors=brewer.pal(6,"Dark2"),
               random.color = FALSE,
               random.order = FALSE)
   })
