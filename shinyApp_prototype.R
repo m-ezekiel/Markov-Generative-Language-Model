@@ -109,6 +109,7 @@ server <- function(input, output, session) {
     inFile <<- input$textFile
     if (is.null(inFile))
       return(NULL)
+    wordVector <<- corpusToVector(file = inFile$datapath, nGram = 1)
     paste("File:", inFile$name, "  ",
           "Words:", length(wordVector), "  ",
           "Variety (0-1):", signif(length(unique(wordVector)) / length(wordVector), digits = 2)) 
